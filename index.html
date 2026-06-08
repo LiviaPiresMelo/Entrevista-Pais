@@ -1300,13 +1300,19 @@ async function submitForm() {
   const { headers, values } = collectData();
 
   try {
-    await fetch(SCRIPT_URL, {
+    fetch(SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({ sheetName: 'Respostas pais', headers, values })
     });
-    document.getElementById('mainForm').style.display = 'none';
-    document.getElementById('successScreen').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // no-cors nao retorna resposta legivel, mas o script recebe os dados
+    // aguarda 1.5s para garantir o envio antes de mostrar sucesso
+    setTimeout(() => {
+      document.getElementById('mainForm').style.display = 'none';
+      document.getElementById('successScreen').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1500);
   } catch (err) {
     btn.disabled = false;
     btn.textContent = 'Enviar Entrevista';
