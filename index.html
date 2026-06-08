@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação Neuropsicológica | Entrevista com Responsáveis</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2e4a;
+    --gold: #b8922a;
+    --gold-light: #f0e0b0;
+    --white: #ffffff;
+    --off-white: #fafaf8;
+    --gray-light: #f2f2ef;
+    --gray-mid: #888;
+    --gray-border: #ddd;
+    --text: #2c2c2c;
+    --success: #2d6a4f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--gold);
+  }
+  .site-header .brand h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .site-header .brand p {
+    font-size: 0.7rem;
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .site-header .crp {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4a6e 100%);
+    padding: 48px 40px 40px;
+    text-align: center;
+    border-bottom: 1px solid rgba(184,146,42,0.3);
+  }
+  .hero h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .hero h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-bar-wrap {
+    background: var(--navy);
+    padding: 16px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .progress-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .progress-pct {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .progress-track {
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), #e8b84b);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  /* ── FORM WRAPPER ── */
+  .form-wrapper {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── SECTION CARD ── */
+  .section-card {
+    background: var(--white);
+    border-radius: 4px;
+    border: 1px solid var(--gray-border);
+    margin-bottom: 32px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(26,46,74,0.06);
+  }
+  .section-header {
+    background: var(--navy);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.03em;
+  }
+  .section-body {
+    padding: 28px;
+  }
+
+  /* ── SUBSECTION ── */
+  .subsection-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 28px 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--gold-light);
+  }
+  .subsection-title:first-child { margin-top: 0; }
+
+  /* ── QUESTION ── */
+  .question-group {
+    margin-bottom: 20px;
+  }
+  .question-label {
+    font-size: 0.82rem;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+  }
+  .question-label .qnum {
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .question-hint {
+    font-size: 0.72rem;
+    color: var(--gray-mid);
+    font-style: italic;
+    margin-bottom: 8px;
+    margin-left: 20px;
+  }
+
+  /* ── INPUTS ── */
+  input[type="text"],
+  input[type="date"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--gray-border);
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text);
+    background: var(--off-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(26,46,74,0.08);
+    background: var(--white);
+  }
+  textarea { resize: vertical; min-height: 72px; }
+
+  /* ── RADIO / CHECKBOX ── */
+  .radio-group, .check-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 0;
+  }
+  .radio-group.vertical, .check-group.vertical {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .radio-opt, .check-opt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text);
+    padding: 7px 14px;
+    border: 1px solid var(--gray-border);
+    border-radius: 3px;
+    transition: all 0.15s;
+    background: var(--off-white);
+    user-select: none;
+  }
+  .radio-opt:hover, .check-opt:hover {
+    border-color: var(--navy);
+    background: #f0f4f9;
+  }
+  .radio-opt input, .check-opt input { display: none; }
+  .radio-opt.selected, .check-opt.selected {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  /* ── SIM/NAO INLINE ── */
+  .yn-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .yn-label {
+    flex: 1;
+    font-size: 0.82rem;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.5;
+    padding-top: 8px;
+  }
+  .yn-label .qnum { color: var(--gold); font-weight: 700; margin-right: 6px; }
+  .yn-opts {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .yn-btn {
+    padding: 7px 14px;
+    border: 1px solid var(--gray-border);
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--off-white);
+    color: var(--gray-mid);
+    transition: all 0.15s;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .yn-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .yn-btn.active-sim { background: var(--navy); border-color: var(--navy); color: var(--white); }
+  .yn-btn.active-nao { background: #c0392b; border-color: #c0392b; color: var(--white); }
+  .yn-btn.active-ns  { background: var(--gray-mid); border-color: var(--gray-mid); color: var(--white); }
+
+  .yn-detail {
+    margin-top: 8px;
+    margin-left: 0;
+    display: none;
+  }
+  .yn-detail.visible { display: block; }
+  .yn-detail textarea { min-height: 54px; font-size: 0.78rem; }
+
+  /* ── TABLE GRID (marcos) ── */
+  .marco-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .marco-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .marco-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--gray-border);
+    vertical-align: middle;
+  }
+  .marco-table tr:nth-child(even) td { background: var(--gray-light); }
+  .marco-table input[type="text"] {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    min-width: 90px;
+  }
+  .marco-table .yn-opts { gap: 4px; }
+  .marco-table .yn-btn { padding: 4px 8px; font-size: 0.7rem; }
+
+  /* ── FAMILIAR TABLE ── */
+  .familiar-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .familiar-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 12px;
+    text-align: center;
+    font-weight: 500;
+  }
+  .familiar-table th:first-child { text-align: left; }
+  .familiar-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--gray-border);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .familiar-table td:first-child { text-align: left; font-weight: 500; color: var(--navy); }
+  .familiar-table tr:nth-child(even) td { background: var(--gray-light); }
+  .familiar-table .yn-btn { padding: 5px 10px; }
+
+  /* ── TRATAMENTOS TABLE ── */
+  .trat-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .trat-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+  }
+  .trat-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--gray-border);
+    vertical-align: middle;
+  }
+  .trat-table tr:nth-child(even) td { background: var(--gray-light); }
+  .trat-table input[type="text"] { padding: 5px 8px; font-size: 0.75rem; }
+  .trat-table .yn-opts { justify-content: center; }
+  .trat-table .yn-btn { padding: 4px 8px; font-size: 0.7rem; }
+
+  /* ── INSTRUCTION BOX ── */
+  .instr-box {
+    background: #f0f4f9;
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 0 3px 3px 0;
+    font-size: 0.78rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── INLINE GRID ── */
+  .inline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .inline-grid { grid-template-columns: 1fr; } }
+
+  /* ── SUBMIT ── */
+  .submit-area {
+    text-align: center;
+    padding: 40px 0 0;
+  }
+  .submit-note {
+    font-size: 0.75rem;
+    color: var(--gray-mid);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .btn-submit {
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 16px 52px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s;
+    border-bottom: 3px solid var(--gold);
+  }
+  .btn-submit:hover { background: #243d61; transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  /* ── SUCCESS ── */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 80px 24px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .success-screen .icon {
+    width: 64px;
+    height: 64px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    border: 3px solid var(--gold);
+  }
+  .success-screen .icon svg { stroke: var(--gold); }
+  .success-screen h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .success-screen p {
+    font-size: 0.82rem;
+    color: var(--gray-mid);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    border-top: 3px solid var(--gold);
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+  }
+  .site-footer span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="brand">
+    <h1>Psi. Lívia Melo</h1>
+    <p>Neuropsicologia &amp; TCC</p>
+  </div>
+  <div class="crp">CRP 11-04802</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Avaliação Neuropsicológica</h2>
+  <h3>Entrevista Estruturada com Pais e Responsáveis</h3>
+  <p>As informações fornecidas são fundamentais para uma avaliação completa. Responda com base no que você observa no dia a dia. Todas as informações são sigilosas e utilizadas exclusivamente para fins clínicos.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar-wrap">
+  <div class="progress-info">
+    <span class="progress-label">Progresso do formulário</span>
+    <span class="progress-pct" id="pctLabel">0%</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrapper">
+  <form id="mainForm">
+
+    <!-- ── I. IDENTIFICAÇÃO ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">I</div>
+        <div class="section-title">Identificação do Adolescente</div>
+      </div>
+      <div class="section-body">
+        <div class="inline-grid">
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">1.</span> Nome completo do adolescente</div>
+            <input type="text" id="nomeAdolescente" placeholder="Nome completo">
+          </div>
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">2.</span> Data de nascimento</div>
+            <input type="date" id="dataNasc">
+          </div>
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">3.</span> Idade</div>
+            <input type="text" id="idade" placeholder="Ex: 14 anos">
+          </div>
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">4.</span> Escola e série atual</div>
+            <input type="text" id="escola" placeholder="Ex: Colégio X – 9º ano">
+          </div>
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">5.</span> Nome do responsável que responde</div>
+            <input type="text" id="nomeResponsavel" placeholder="Nome completo">
+          </div>
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">6.</span> Relação com o adolescente</div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="relacao" value="Mãe"> Mãe</label>
+              <label class="radio-opt"><input type="radio" name="relacao" value="Pai"> Pai</label>
+              <label class="radio-opt"><input type="radio" name="relacao" value="Responsável"> Responsável</label>
+              <label class="radio-opt"><input type="radio" name="relacao" value="Outro"> Outro</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── II. MOTIVO ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">II</div>
+        <div class="section-title">Motivo da Avaliação</div>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">7.</span> Qual o principal motivo que trouxe o/a adolescente para esta avaliação?</div>
+          <textarea id="motivoPrincipal" placeholder="Descreva o motivo principal..."></textarea>
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">8.</span> Há quanto tempo você observa as dificuldades relatadas?</div>
+          <input type="text" id="tempoDificuldade" placeholder="Ex: Desde os 8 anos / Últimos 2 anos">
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">9.</span> Em quais situações as dificuldades aparecem com mais frequência?</div>
+          <textarea id="situacoesDificuldade" placeholder="Ex: Na escola, em casa, em situações sociais..."></textarea>
+        </div>
+        <div class="yn-row">
+          <div class="yn-label"><span class="qnum">10.</span> Já foi realizada alguma avaliação psicológica, neurológica ou psiquiátrica anteriormente?</div>
+          <div class="yn-opts">
+            <button type="button" class="yn-btn" onclick="toggleYN(this,'yn10','sim')">Sim</button>
+            <button type="button" class="yn-btn" onclick="toggleYN(this,'yn10','nao')">Não</button>
+            <button type="button" class="yn-btn" onclick="toggleYN(this,'yn10','ns')">Não sei</button>
+          </div>
+        </div>
+        <input type="hidden" id="yn10" value="">
+        <div class="yn-detail" id="detail_yn10">
+          <textarea id="detail_yn10_text" placeholder="Informe o profissional, data e conclusão, se disponível..."></textarea>
+        </div>
+        <div class="question-group" style="margin-top:8px;">
+          <div class="question-label"><span class="qnum">11.</span> Existem diagnósticos já estabelecidos? Quais?</div>
+          <input type="text" id="diagnosticos" placeholder="Ex: TDAH, Dislexia, TEA... ou Nenhum">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── III. GESTAÇÃO E NASCIMENTO ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">III</div>
+        <div class="section-title">História Gestacional e Nascimento</div>
+      </div>
+      <div class="section-body">
+        <div class="subsection-title">Gestação</div>
+        <div id="gest-yns"></div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">18.</span> Tempo gestacional (semanas)</div>
+          <input type="text" id="tempoGestacional" placeholder="Ex: 38 semanas">
+        </div>
+
+        <div class="subsection-title">Parto e Nascimento</div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">19.</span> Tipo de parto</div>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="tipoParto" value="Normal"> Normal</label>
+            <label class="radio-opt"><input type="radio" name="tipoParto" value="Cesárea"> Cesárea</label>
+            <label class="radio-opt"><input type="radio" name="tipoParto" value="Fórceps"> Fórceps</label>
+            <label class="radio-opt"><input type="radio" name="tipoParto" value="Vácuo"> Vácuo</label>
+            <label class="radio-opt"><input type="radio" name="tipoParto" value="Não sei"> Não sei</label>
+          </div>
+        </div>
+        <div id="parto-yns"></div>
+        <div class="inline-grid">
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">24.</span> Peso ao nascer (kg)</div>
+            <input type="text" id="pesoNasc" placeholder="Ex: 3,2 kg">
+          </div>
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">25.</span> Altura ao nascer (cm)</div>
+            <input type="text" id="alturaNasc" placeholder="Ex: 49 cm">
+          </div>
+          <div class="question-group">
+            <div class="question-label"><span class="qnum">26.</span> Nota Apgar (se souber)</div>
+            <input type="text" id="apgar" placeholder="Ex: 9/10 ou Não sei">
+          </div>
+        </div>
+        <div id="neonatal-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── IV. DESENVOLVIMENTO ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">IV</div>
+        <div class="section-title">Desenvolvimento Neuropsicomotor</div>
+      </div>
+      <div class="section-body">
+        <div class="instr-box">Indique a idade aproximada em que cada marco foi atingido, ou marque "Não atingiu" / "Não sei".</div>
+        <div style="overflow-x:auto;">
+        <table class="marco-table" id="marcoTable">
+          <thead>
+            <tr>
+              <th>Marco</th>
+              <th>Idade aproximada</th>
+              <th>Não atingiu</th>
+              <th>Não sei</th>
+            </tr>
+          </thead>
+          <tbody id="marcoBody"></tbody>
+        </table>
+        </div>
+        <div class="question-group" style="margin-top:20px;">
+          <div class="yn-row">
+            <div class="yn-label"><span class="qnum">39.</span> Observou alguma regressão no desenvolvimento (ex.: voltou a usar fralda, parou de falar)?</div>
+            <div class="yn-opts">
+              <button type="button" class="yn-btn" onclick="toggleYN(this,'yn39','sim')">Sim</button>
+              <button type="button" class="yn-btn" onclick="toggleYN(this,'yn39','nao')">Não</button>
+              <button type="button" class="yn-btn" onclick="toggleYN(this,'yn39','ns')">Não sei</button>
+            </div>
+          </div>
+          <input type="hidden" id="yn39" value="">
+          <div class="yn-detail" id="detail_yn39">
+            <textarea id="detail_yn39_text" placeholder="Descreva a regressão observada..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── V. SAÚDE ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">V</div>
+        <div class="section-title">Histórico de Saúde</div>
+      </div>
+      <div class="section-body">
+        <div class="subsection-title">Doenças e Intercorrências</div>
+        <div id="saude-yns"></div>
+        <div class="subsection-title">Medicações e Sono</div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">50.</span> Faz uso de algum medicamento atualmente? Qual? Dose?</div>
+          <input type="text" id="medicamentosAtuais" placeholder="Ex: Ritalina 10mg, Melatonina... ou Nenhum">
+        </div>
+        <div id="medicacao-yns"></div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">53.</span> Padrão de sono</div>
+          <div class="inline-grid">
+            <div>
+              <div style="font-size:0.75rem;color:var(--gray-mid);margin-bottom:4px;">Horário de dormir</div>
+              <input type="text" id="horarioDormir" placeholder="Ex: 22h30">
+            </div>
+            <div>
+              <div style="font-size:0.75rem;color:var(--gray-mid);margin-bottom:4px;">Horário de acordar</div>
+              <input type="text" id="horarioAcordar" placeholder="Ex: 06h30">
+            </div>
+          </div>
+        </div>
+        <div id="sono-yns"></div>
+        <div class="subsection-title">Sentidos e Motor</div>
+        <div id="sentidos-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── VI. HISTÓRICO FAMILIAR ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">VI</div>
+        <div class="section-title">Histórico Familiar</div>
+      </div>
+      <div class="section-body">
+        <div class="instr-box">Informe se há casos na família biológica (pais, irmãos, avós, tios) das condições abaixo.</div>
+        <div style="overflow-x:auto;">
+        <table class="familiar-table" id="familiarTable">
+          <thead>
+            <tr>
+              <th>Condição</th>
+              <th>Sim</th>
+              <th>Não</th>
+              <th>Não sei</th>
+            </tr>
+          </thead>
+          <tbody id="familiarBody"></tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── VII. ESCOLAR ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">VII</div>
+        <div class="section-title">Histórico Escolar e Aprendizagem</div>
+      </div>
+      <div class="section-body">
+        <div id="escolar-yns"></div>
+        <div class="subsection-title">Habilidades Acadêmicas Específicas</div>
+        <div id="academico-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── VIII. ATENÇÃO E FE ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">VIII</div>
+        <div class="section-title">Atenção, Concentração e Funções Executivas</div>
+      </div>
+      <div class="section-body">
+        <div class="instr-box">As funções executivas incluem planejamento, organização, controle de impulsos, memória de trabalho e regulação emocional.</div>
+        <div id="atencao-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── IX. LINGUAGEM ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">IX</div>
+        <div class="section-title">Linguagem e Comunicação</div>
+      </div>
+      <div class="section-body">
+        <div id="linguagem-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── X. VISUOESPACIAL ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">X</div>
+        <div class="section-title">Habilidades Visuoespaciais e Motoras</div>
+      </div>
+      <div class="section-body">
+        <div id="visuo-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── XI. MEMÓRIA ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XI</div>
+        <div class="section-title">Memória</div>
+      </div>
+      <div class="section-body">
+        <div id="memoria-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── XII. COMPORTAMENTO ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XII</div>
+        <div class="section-title">Comportamento, Emoções e Regulação</div>
+      </div>
+      <div class="section-body">
+        <div class="subsection-title">Regulação Emocional</div>
+        <div id="emocao-yns"></div>
+        <div class="subsection-title">Comportamento</div>
+        <div id="comportamento-yns"></div>
+      </div>
+    </div>
+
+    <!-- ── XIII. SOCIAL ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XIII</div>
+        <div class="section-title">Habilidades Sociais e Relacionamentos</div>
+      </div>
+      <div class="section-body">
+        <div id="social-yns"></div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">87.</span> Como é a relação com os pais, irmãos e outros familiares?</div>
+          <textarea id="relacaoFamiliar" placeholder="Descreva..."></textarea>
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">88.</span> Tem amigos próximos? Com que frequência interage?</div>
+          <input type="text" id="amigos" placeholder="Ex: Sim, 2 amigos próximos, vê-os semanalmente">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── XIV. ROTINA ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XIV</div>
+        <div class="section-title">Rotina, Autonomia e Hábitos</div>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">89.</span> Descreva a rotina típica de um dia de semana do/a adolescente</div>
+          <textarea id="rotinaDiaria" placeholder="Ex: Acorda às 6h, vai à escola, volta às 13h, estuda, usa celular..."></textarea>
+        </div>
+        <div id="rotina-yns"></div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">93.</span> Quais atividades de lazer, esporte ou cultura pratica?</div>
+          <input type="text" id="lazer" placeholder="Ex: Futebol, violão, jogos, leitura...">
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">94.</span> Horas por dia em dispositivos digitais</div>
+          <input type="text" id="tempoTela" placeholder="Ex: 4 a 6 horas por dia">
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">95.</span> Como é a alimentação? Há restrições ou dificuldades?</div>
+          <input type="text" id="alimentacao" placeholder="Ex: Come bem, seletividade alimentar para texturas...">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── XV. TRATAMENTOS ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XV</div>
+        <div class="section-title">Histórico de Acompanhamentos e Tratamentos</div>
+      </div>
+      <div class="section-body">
+        <div style="overflow-x:auto;">
+        <table class="trat-table" id="tratTable">
+          <thead>
+            <tr>
+              <th>Profissional</th>
+              <th>Período</th>
+              <th>Em curso?</th>
+              <th>Observações</th>
+            </tr>
+          </thead>
+          <tbody id="tratBody"></tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── XVI. CONTEXTO FAMILIAR ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XVI</div>
+        <div class="section-title">Contexto Familiar e Social</div>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">96.</span> Com quem o/a adolescente mora atualmente?</div>
+          <input type="text" id="composicaoFamiliar" placeholder="Ex: Pai, mãe e um irmão">
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">97.</span> Houve mudanças importantes na configuração familiar recentemente?</div>
+          <textarea id="mudancasFamiliares" placeholder="Ex: Separação dos pais, mudança de cidade, falecimento..."></textarea>
+        </div>
+        <div id="contexto-yns"></div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">101.</span> Como você descreveria o clima emocional da família?</div>
+          <textarea id="climaFamiliar" placeholder="Ex: Tranquilo, com muitos conflitos, ansioso..."></textarea>
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">102.</span> Como é a relação dos pais com a escola?</div>
+          <input type="text" id="relacaoEscola" placeholder="Ex: Presente, pouco envolvida, frequente contato com professores...">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── XVII. PERCEPÇÃO ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XVII</div>
+        <div class="section-title">Percepção e Expectativas dos Pais</div>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">103.</span> Na sua opinião, qual é o maior potencial do/a adolescente?</div>
+          <textarea id="potencial" placeholder="Descreva os pontos fortes que você observa..."></textarea>
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">104.</span> O que você gostaria de ver melhorar após essa avaliação?</div>
+          <textarea id="melhorias" placeholder="Descreva suas expectativas de mudança..."></textarea>
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">105.</span> Existe algo importante sobre o/a adolescente que não foi perguntado?</div>
+          <textarea id="infoAdicional" placeholder="Fique à vontade para acrescentar qualquer informação relevante..."></textarea>
+        </div>
+        <div class="question-group">
+          <div class="question-label"><span class="qnum">106.</span> Quais são suas expectativas em relação a esta avaliação?</div>
+          <textarea id="expectativas" placeholder="O que você espera compreender ou transformar a partir desta avaliação?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── XVIII. SUBSTÂNCIAS ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">XVIII</div>
+        <div class="section-title">Uso de Substâncias</div>
+      </div>
+      <div class="section-body">
+        <div class="instr-box">Estas informações são clinicamente relevantes e absolutamente sigilosas. Responda com honestidade.</div>
+        <div id="substancias-yns"></div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-area">
+      <p class="submit-note">Ao enviar, suas respostas serão registradas com segurança e analisadas pela Psi. Lívia Melo.<br>Todas as informações são confidenciais e utilizadas exclusivamente para fins clínicos.</p>
+      <button type="button" class="btn-submit" id="btnSubmit" onclick="submitForm()">Enviar Entrevista</button>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS -->
+  <div class="success-screen" id="successScreen">
+    <div class="icon">
+      <svg width="28" height="28" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h2>Entrevista enviada com sucesso!</h2>
+    <p>Obrigada pelo cuidado e atenção ao responder. As informações foram registradas e serão analisadas com toda a atenção pela Psi. Lívia Melo.<br><br>Em breve entraremos em contato para os próximos passos da avaliação.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span>Psi. Lívia Melo</span> &nbsp;|&nbsp; CRP 11-04802 &nbsp;|&nbsp; Neuropsicologia &amp; TCC &nbsp;|&nbsp; liviamelo.com.br
+</footer>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRTZ-bH_m7ITPVGLqHu7MNNYlX0uEr4aVQDv3XJjP4ULHs_GO-hmFpaUHierMBm4zE/exec";
+
+// ── YN STATE ──────────────────────────────────────────────────────────────
+const ynState = {};
+
+function toggleYN(btn, fieldId, val) {
+  const btns = btn.closest('.yn-opts').querySelectorAll('.yn-btn');
+  btns.forEach(b => b.className = 'yn-btn');
+  const classMap = { sim: 'yn-btn active-sim', nao: 'yn-btn active-nao', ns: 'yn-btn active-ns' };
+  btn.className = classMap[val];
+  ynState[fieldId] = val;
+  document.getElementById(fieldId).value = val;
+  const detail = document.getElementById('detail_' + fieldId);
+  if (detail) detail.classList.toggle('visible', val === 'sim');
+  updateProgress();
+}
+
+// ── YN BUILDER ────────────────────────────────────────────────────────────
+function buildYN(containerId, items) {
+  const container = document.getElementById(containerId);
+  items.forEach(item => {
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `
+      <div class="yn-row">
+        <div class="yn-label"><span class="qnum">${item.num}.</span> ${item.label}</div>
+        <div class="yn-opts">
+          <button type="button" class="yn-btn" onclick="toggleYN(this,'${item.id}','sim')">Sim</button>
+          <button type="button" class="yn-btn" onclick="toggleYN(this,'${item.id}','nao')">Não</button>
+          <button type="button" class="yn-btn" onclick="toggleYN(this,'${item.id}','ns')">Não sei</button>
+        </div>
+      </div>
+      <input type="hidden" id="${item.id}" value="">
+      ${item.detail ? `<div class="yn-detail" id="detail_${item.id}"><textarea id="detail_${item.id}_text" placeholder="${item.detail}"></textarea></div>` : ''}
+    `;
+    container.appendChild(wrap);
+  });
+}
+
+// ── MARCO TABLE ───────────────────────────────────────────────────────────
+const marcos = [
+  "Sustentou a cabeça","Sentou sem apoio","Engatinhou","Ficou em pé com apoio",
+  "Andou sem apoio","Primeiras palavras isoladas","Juntou duas palavras",
+  "Frases completas","Controle de esfíncteres diurno","Controle de esfíncteres noturno","Primeiros dentes"
+];
+function buildMarcos() {
+  const tbody = document.getElementById('marcoBody');
+  marcos.forEach((m, i) => {
+    const id = 'marco_' + i;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${m}</td>
+      <td><input type="text" id="${id}_idade" placeholder="Ex: 12 meses"></td>
+      <td style="text-align:center;">
+        <div class="yn-opts" style="justify-content:center;">
+          <button type="button" class="yn-btn" onclick="toggleMarco(this,'${id}_na')">Sim</button>
+        </div>
+        <input type="hidden" id="${id}_na" value="">
+      </td>
+      <td style="text-align:center;">
+        <div class="yn-opts" style="justify-content:center;">
+          <button type="button" class="yn-btn" onclick="toggleMarco(this,'${id}_ns')">Sim</button>
+        </div>
+        <input type="hidden" id="${id}_ns" value="">
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+function toggleMarco(btn, fieldId) {
+  const cur = document.getElementById(fieldId).value;
+  if (cur === 'sim') {
+    btn.className = 'yn-btn';
+    document.getElementById(fieldId).value = '';
+  } else {
+    btn.className = 'yn-btn active-sim';
+    document.getElementById(fieldId).value = 'sim';
+  }
+}
+
+// ── FAMILIAR TABLE ────────────────────────────────────────────────────────
+const familiarConds = [
+  "TDAH ou dificuldades de atenção","Dislexia ou dificuldades de leitura/escrita",
+  "Autismo ou TEA","Deficiência intelectual","Transtorno de ansiedade",
+  "Depressão","Transtorno bipolar","Esquizofrenia ou psicose",
+  "Epilepsia ou convulsões","Abuso de álcool ou drogas","Dificuldades escolares importantes"
+];
+function buildFamiliar() {
+  const tbody = document.getElementById('familiarBody');
+  familiarConds.forEach((c, i) => {
+    const id = 'fam_' + i;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${c}</td>
+      <td><div class="yn-opts" style="justify-content:center;"><button type="button" class="yn-btn" onclick="toggleFam(this,'${id}','sim')">Sim</button></div></td>
+      <td><div class="yn-opts" style="justify-content:center;"><button type="button" class="yn-btn" onclick="toggleFam(this,'${id}','nao')">Não</button></div></td>
+      <td><div class="yn-opts" style="justify-content:center;"><button type="button" class="yn-btn" onclick="toggleFam(this,'${id}','ns')">Não sei</button></div></td>
+      <input type="hidden" id="${id}" value="">
+    `;
+    tbody.appendChild(tr);
+  });
+}
+function toggleFam(btn, fieldId, val) {
+  const row = btn.closest('tr');
+  row.querySelectorAll('.yn-btn').forEach(b => b.className = 'yn-btn');
+  const classMap = { sim: 'yn-btn active-sim', nao: 'yn-btn active-nao', ns: 'yn-btn active-ns' };
+  btn.className = classMap[val];
+  document.getElementById(fieldId).value = val;
+  updateProgress();
+}
+
+// ── TRATAMENTOS TABLE ─────────────────────────────────────────────────────
+const profissionais = ["Psicólogo/a","Neurologista","Psiquiatra","Fonoaudiólogo/a","Terapeuta Ocupacional","Pedagogo/a","Outro"];
+function buildTratamentos() {
+  const tbody = document.getElementById('tratBody');
+  profissionais.forEach((p, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="font-weight:500;color:var(--navy)">${p}</td>
+      <td><input type="text" id="trat_${i}_periodo" placeholder="Ex: 2022–2023"></td>
+      <td>
+        <div class="yn-opts" style="justify-content:center;">
+          <button type="button" class="yn-btn" onclick="toggleTrat(this,'trat_${i}_curso','sim')">Sim</button>
+          <button type="button" class="yn-btn" onclick="toggleTrat(this,'trat_${i}_curso','nao')">Não</button>
+        </div>
+        <input type="hidden" id="trat_${i}_curso" value="">
+      </td>
+      <td><input type="text" id="trat_${i}_obs" placeholder="Resultado / motivo de encerramento"></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+function toggleTrat(btn, fieldId, val) {
+  const opts = btn.closest('.yn-opts');
+  opts.querySelectorAll('.yn-btn').forEach(b => b.className = 'yn-btn');
+  btn.className = val === 'sim' ? 'yn-btn active-sim' : 'yn-btn active-nao';
+  document.getElementById(fieldId).value = val;
+}
+
+// ── PROGRESS ──────────────────────────────────────────────────────────────
+function updateProgress() {
+  const inputs = document.querySelectorAll('input[type="text"], input[type="date"], textarea, input[type="hidden"]');
+  let filled = 0, total = 0;
+  inputs.forEach(el => {
+    if (el.type === 'hidden') {
+      if (el.id && el.id.startsWith('yn')) { total++; if (el.value) filled++; }
+    } else {
+      total++;
+      if (el.value && el.value.trim()) filled++;
+    }
+  });
+  const pct = total > 0 ? Math.round((filled / total) * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('pctLabel').textContent = pct + '%';
+}
+
+document.addEventListener('input', updateProgress);
+
+// ── COLLECT DATA ──────────────────────────────────────────────────────────
+function collectData() {
+  const g = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+
+  // marcos
+  const marcosData = marcos.map((m, i) => {
+    const idade = g(`marco_${i}_idade`);
+    const na = g(`marco_${i}_na`) === 'sim' ? 'Não atingiu' : '';
+    const ns = g(`marco_${i}_ns`) === 'sim' ? 'Não sei' : '';
+    return `${m}: ${na || ns || idade || 'N/I'}`;
+  }).join(' | ');
+
+  // familiar
+  const famData = familiarConds.map((c, i) => `${c}: ${g('fam_' + i) || 'N/I'}`).join(' | ');
+
+  // tratamentos
+  const tratData = profissionais.map((p, i) =>
+    `${p}: período=${g('trat_'+i+'_periodo')||'N/I'} em curso=${g('trat_'+i+'_curso')||'N/I'} obs=${g('trat_'+i+'_obs')||'N/I'}`
+  ).join(' | ');
+
+  const now = new Date();
+  const timestamp = now.toLocaleString('pt-BR');
+
+  const headers = [
+    "Carimbo","Nome Adolescente","Data Nascimento","Idade","Escola/Série",
+    "Nome Responsável","Relação","Motivo Principal","Tempo Dificuldade",
+    "Situações Dificuldade","Avaliação Anterior","Det. Avaliação Anterior",
+    "Diagnósticos Existentes","Gestação Planejada","Det. Gestação Planejada",
+    "Medicamentos Gestação","Det. Medicamentos Gestação","Substâncias Gestação","Det. Substâncias Gestação",
+    "Intercorrências Gestação","Det. Intercorrências Gestação","Estresse Gestação","Det. Estresse Gestação",
+    "Tempo Gestacional","Tipo Parto","Intercorrência Parto","Det. Intercorrência Parto",
+    "Peso Nasc","Altura Nasc","Apgar","UTI Neonatal","Det. UTI Neonatal",
+    "Icterícia","Det. Icterícia","Marcos Desenvolvimento","Regressão Desenvolvimento","Det. Regressão",
+    "Doença Grave","Det. Doença Grave","Convulsões","Det. Convulsões","TCE","Det. TCE",
+    "Infecções SNC","Det. Infecções SNC","Condição Neurológica","Det. Condição Neurológica",
+    "Medicamentos Atuais","Medicação Psiquiátrica Anterior","Det. Medicação Psiq Anterior",
+    "Horário Dormir","Horário Acordar","Dificuldade Sono","Det. Dificuldade Sono",
+    "Problemas Visão","Det. Problemas Visão","Problemas Audição","Det. Problemas Audição",
+    "Dificuldades Motoras","Det. Dificuldades Motoras","Histórico Familiar","Idade Início Escola",
+    "Frequentou Creche","Det. Creche","Reprovação","Det. Reprovação","Mudou de Escola","Det. Mudou Escola",
+    "Rendimento Escolar Atual","Matérias com Dificuldade","Melhores Matérias",
+    "Professores Relataram Preocupações","Det. Preocupações Professor","Apoio Pedagógico","Det. Apoio Pedagógico",
+    "Dificuldade Leitura","Det. Dificuldade Leitura","Dificuldade Escrita","Det. Dificuldade Escrita",
+    "Dificuldade Matemática","Det. Dificuldade Matemática","Dificuldade Compreensão Textual","Det. Compreensão Textual",
+    "Dificuldade Atenção Tarefas","Det. Atenção Tarefas","Distração Fácil","Det. Distração",
+    "Não Finaliza Tarefas","Det. Não Finaliza","Desorganização","Det. Desorganização",
+    "Esquecimento Frequente","Det. Esquecimento","Dificuldade Planejamento","Det. Planejamento",
+    "Impulsividade","Det. Impulsividade","Baixa Tolerância Frustração","Det. Tolerância Frustração",
+    "Mudança Brusca Atividade","Det. Mudança Atividade","Hiperfoco","Det. Hiperfoco",
+    "Dificuldade Expressão Verbal","Det. Expressão Verbal","Dificuldade Compreensão Instruções","Det. Compreensão Instruções",
+    "Trocas de Palavras","Det. Trocas Palavras","Acompanhamento Fono","Det. Acompanhamento Fono",
+    "Dificuldade Social Comunicação","Det. Social Comunicação","Dificuldade Orientação Espacial","Det. Orientação Espacial",
+    "Dificuldade Coordenação","Det. Coordenação","Letra Desorganizada","Det. Letra Desorganizada",
+    "Esquece Recentemente Aprendido","Det. Esquece Recente","Dificuldade Eventos Passados","Det. Eventos Passados",
+    "Dificuldade Memorizar Sequências","Det. Sequências","Memória Seletiva","Det. Memória Seletiva",
+    "Crises Emocionais","Det. Crises Emocionais","Humor Instável","Det. Humor Instável",
+    "Reação Intensa Frustração","Det. Reação Frustração","Ansiedade","Det. Ansiedade",
+    "Tristeza Persistente","Det. Tristeza","Dificuldade Relaxar","Det. Dificuldade Relaxar",
+    "Comportamentos Repetitivos","Det. Comportamentos Repetitivos","Oposição Desafio","Det. Oposição",
+    "Comportamentos Agressivos","Det. Comportamentos Agressivos","Autolesão","Det. Autolesão",
+    "Dificuldade Mudança Rotina","Det. Mudança Rotina","Preocupação Telas","Det. Preocupação Telas",
+    "Dificuldade Amizades","Det. Dificuldade Amizades","Prefere Ficar Sozinho","Det. Prefere Sozinho",
+    "Bullying","Det. Bullying","Relação Familiar","Amigos","Rotina Diária",
+    "Dificuldade Cumprir Rotina","Det. Cumprir Rotina","Procrastinação","Det. Procrastinação",
+    "Lazer","Tempo Tela","Alimentação","Tratamentos Anteriores","Composição Familiar",
+    "Mudanças Familiares","Conflitos Familiares","Det. Conflitos","Clima Familiar","Relação Escola",
+    "Potencial Adolescente","Melhorias Esperadas","Informação Adicional","Expectativas",
+    "Uso Álcool","Det. Álcool","Uso Cigarro/Narguilé","Det. Cigarro","Uso Cannabis","Det. Cannabis","Uso Excessivo Medicamentos","Det. Medicamentos"
+  ];
+
+  function yn(id) { return g(id) || 'N/I'; }
+  function yndet(id) { return g('detail_'+id+'_text') || ''; }
+
+  const relacao = document.querySelector('input[name="relacao"]:checked');
+  const tipoParto = document.querySelector('input[name="tipoParto"]:checked');
+
+  const values = [
+    timestamp, g('nomeAdolescente'), g('dataNasc'), g('idade'), g('escola'),
+    g('nomeResponsavel'), relacao ? relacao.value : '',
+    g('motivoPrincipal'), g('tempoDificuldade'), g('situacoesDificuldade'),
+    yn('yn10'), yndet('yn10'), g('diagnosticos'),
+    yn('yn_gestPlan'), yndet('yn_gestPlan'),
+    yn('yn_gestMed'), yndet('yn_gestMed'),
+    yn('yn_gestSubst'), yndet('yn_gestSubst'),
+    yn('yn_gestInter'), yndet('yn_gestInter'),
+    yn('yn_gestEstresse'), yndet('yn_gestEstresse'),
+    g('tempoGestacional'), tipoParto ? tipoParto.value : '',
+    yn('yn_partoInter'), yndet('yn_partoInter'),
+    g('pesoNasc'), g('alturaNasc'), g('apgar'),
+    yn('yn_utiNeo'), yndet('yn_utiNeo'),
+    yn('yn_ictericia'), yndet('yn_ictericia'),
+    marcosData, yn('yn39'), yndet('yn39'),
+    yn('yn_doencaGrave'), yndet('yn_doencaGrave'),
+    yn('yn_convulsoes'), yndet('yn_convulsoes'),
+    yn('yn_tce'), yndet('yn_tce'),
+    yn('yn_infeccoes'), yndet('yn_infeccoes'),
+    yn('yn_condNeuro'), yndet('yn_condNeuro'),
+    g('medicamentosAtuais'),
+    yn('yn_medPsiq'), yndet('yn_medPsiq'),
+    g('horarioDormir'), g('horarioAcordar'),
+    yn('yn_difSono'), yndet('yn_difSono'),
+    yn('yn_visao'), yndet('yn_visao'),
+    yn('yn_audicao'), yndet('yn_audicao'),
+    yn('yn_motor'), yndet('yn_motor'),
+    famData,
+    g('yn_idadeEscola'),
+    yn('yn_creche'), yndet('yn_creche'),
+    yn('yn_reprovacao'), yndet('yn_reprovacao'),
+    yn('yn_mudouEscola'), yndet('yn_mudouEscola'),
+    g('rendimentoAtual'), g('materiasRuins'), g('materiasBonas'),
+    yn('yn_profPreoc'), yndet('yn_profPreoc'),
+    yn('yn_apoioPed'), yndet('yn_apoioPed'),
+    yn('yn_difLeitura'), yndet('yn_difLeitura'),
+    yn('yn_difEscrita'), yndet('yn_difEscrita'),
+    yn('yn_difMat'), yndet('yn_difMat'),
+    yn('yn_difComp'), yndet('yn_difComp'),
+    yn('yn_atenLonga'), yndet('yn_atenLonga'),
+    yn('yn_distracao'), yndet('yn_distracao'),
+    yn('yn_naofinaliza'), yndet('yn_naofinaliza'),
+    yn('yn_desorg'), yndet('yn_desorg'),
+    yn('yn_esquecimento'), yndet('yn_esquecimento'),
+    yn('yn_planejamento'), yndet('yn_planejamento'),
+    yn('yn_impulso'), yndet('yn_impulso'),
+    yn('yn_frustracao'), yndet('yn_frustracao'),
+    yn('yn_mudancaAtiv'), yndet('yn_mudancaAtiv'),
+    yn('yn_hiperfoco'), yndet('yn_hiperfoco'),
+    yn('yn_expVerbal'), yndet('yn_expVerbal'),
+    yn('yn_compInstrucoes'), yndet('yn_compInstrucoes'),
+    yn('yn_trocaPalavras'), yndet('yn_trocaPalavras'),
+    yn('yn_fono'), yndet('yn_fono'),
+    yn('yn_comSocial'), yndet('yn_comSocial'),
+    yn('yn_orientEsp'), yndet('yn_orientEsp'),
+    yn('yn_coordenacao'), yndet('yn_coordenacao'),
+    yn('yn_letraDesorgs'), yndet('yn_letraDesorgs'),
+    yn('yn_memRecente'), yndet('yn_memRecente'),
+    yn('yn_memPassado'), yndet('yn_memPassado'),
+    yn('yn_memSeq'), yndet('yn_memSeq'),
+    yn('yn_memSelet'), yndet('yn_memSelet'),
+    yn('yn_crisesEmoc'), yndet('yn_crisesEmoc'),
+    yn('yn_humorInst'), yndet('yn_humorInst'),
+    yn('yn_reaIntensa'), yndet('yn_reaIntensa'),
+    yn('yn_ansiedade'), yndet('yn_ansiedade'),
+    yn('yn_tristeza'), yndet('yn_tristeza'),
+    yn('yn_difRelaxar'), yndet('yn_difRelaxar'),
+    yn('yn_compRepetit'), yndet('yn_compRepetit'),
+    yn('yn_oposicao'), yndet('yn_oposicao'),
+    yn('yn_agressivo'), yndet('yn_agressivo'),
+    yn('yn_autolesao'), yndet('yn_autolesao'),
+    yn('yn_mudRotina'), yndet('yn_mudRotina'),
+    yn('yn_telas'), yndet('yn_telas'),
+    yn('yn_amizades'), yndet('yn_amizades'),
+    yn('yn_sozinho'), yndet('yn_sozinho'),
+    yn('yn_bullying'), yndet('yn_bullying'),
+    g('relacaoFamiliar'), g('amigos'), g('rotinaDiaria'),
+    yn('yn_cumpRotina'), yndet('yn_cumpRotina'),
+    yn('yn_procrastin'), yndet('yn_procrastin'),
+    g('lazer'), g('tempoTela'), g('alimentacao'),
+    tratData,
+    g('composicaoFamiliar'), g('mudancasFamiliares'),
+    yn('yn_conflitos'), yndet('yn_conflitos'),
+    g('climaFamiliar'), g('relacaoEscola'),
+    g('potencial'), g('melhorias'), g('infoAdicional'), g('expectativas'),
+    yn('yn_alcool'), yndet('yn_alcool'),
+    yn('yn_cigarro'), yndet('yn_cigarro'),
+    yn('yn_cannabis'), yndet('yn_cannabis'),
+    yn('yn_subsMed'), yndet('yn_subsMed')
+  ];
+
+  return { headers, values };
+}
+
+// ── SUBMIT ────────────────────────────────────────────────────────────────
+async function submitForm() {
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  const { headers, values } = collectData();
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ sheetName: 'Respostas pais', headers, values })
+    });
+    document.getElementById('mainForm').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Enviar Entrevista';
+    alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+
+  // Gestação
+  buildYN('gest-yns', [
+    { num:12, id:'yn_gestPlan', label:'A gestação foi planejada?', detail:'Descreva...' },
+    { num:13, id:'yn_gestMed', label:'Houve uso de medicamentos durante a gestação?', detail:'Quais medicamentos?' },
+    { num:14, id:'yn_gestSubst', label:'Houve uso de álcool, cigarro ou outras substâncias na gestação?', detail:'Descreva...' },
+    { num:15, id:'yn_gestInter', label:'Houve intercorrências médicas durante a gestação (infecções, sangramentos, eclampsia, diabetes gestacional, etc.)?', detail:'Descreva a intercorrência...' },
+    { num:16, id:'yn_gestEstresse', label:'A mãe passou por situações de estresse intenso ou traumas durante a gestação?', detail:'Descreva...' },
+  ]);
+
+  // Parto
+  buildYN('parto-yns', [
+    { num:20, id:'yn_partoInter', label:'Houve alguma intercorrência durante o parto (cordão umbilical, demora, falta de oxigênio, etc.)?', detail:'Descreva a intercorrência...' },
+  ]);
+
+  // Neonatal
+  buildYN('neonatal-yns', [
+    { num:27, id:'yn_utiNeo', label:'O bebê precisou ficar em UTI neonatal ou incubadora?', detail:'Por quanto tempo? Qual o motivo?' },
+    { num:28, id:'yn_ictericia', label:'Houve icterícia (amarelão) após o nascimento?', detail:'Por quanto tempo? Precisou de tratamento?' },
+  ]);
+
+  buildMarcos();
+  buildFamiliar();
+
+  // Saúde
+  buildYN('saude-yns', [
+    { num:40, id:'yn_doencaGrave', label:'O/a adolescente teve alguma doença grave, cirurgia ou hospitalização?', detail:'Qual doença ou cirurgia? Quando?' },
+    { num:41, id:'yn_convulsoes', label:'Já teve convulsões, desmaios ou episódios de perda de consciência?', detail:'Descreva o episódio e a frequência...' },
+    { num:42, id:'yn_tce', label:'Sofreu algum traumatismo craniano (batida na cabeça, queda, acidente)?', detail:'Descreva o evento e as consequências...' },
+    { num:43, id:'yn_infeccoes', label:'Teve infecções graves no sistema nervoso (meningite, encefalite, etc.)?', detail:'Qual infecção e quando?' },
+    { num:44, id:'yn_condNeuro', label:'Tem alguma condição neurológica ou genética diagnosticada?', detail:'Qual condição e quando foi diagnosticada?' },
+  ]);
+  buildYN('medicacao-yns', [
+    { num:51, id:'yn_medPsiq', label:'Já fez uso de medicação psiquiátrica ou neurológica? Qual? Por quanto tempo?', detail:'Qual medicação, dose e período?' },
+  ]);
+  buildYN('sono-yns', [
+    { num:54, id:'yn_difSono', label:'Apresenta dificuldade para dormir, pesadelos, sonambulismo ou cansaço excessivo?', detail:'Descreva o padrão de sono observado...' },
+  ]);
+  buildYN('sentidos-yns', [
+    { num:55, id:'yn_visao', label:'Usa óculos ou tem dificuldade de visão?', detail:'Qual o grau ou dificuldade?' },
+    { num:56, id:'yn_audicao', label:'Usa aparelho auditivo ou tem dificuldade de audição?', detail:'Descreva a dificuldade...' },
+    { num:57, id:'yn_motor', label:'Apresenta dificuldades motoras finas (escrever, recortar, abotoar) ou grossas (correr, pular, equilíbrio)?', detail:'Descreva as dificuldades motoras...' },
+  ]);
+
+  // Escolar
+  buildYN('escolar-yns', [
+    { num:58, id:'yn_idadeEscola', label:'Com que idade iniciou a escola? (responder no campo abaixo)', detail:'' },
+    { num:59, id:'yn_creche', label:'Frequentou creche ou pré-escola?', detail:'Idade de início e nome da instituição, se lembrar...' },
+    { num:60, id:'yn_reprovacao', label:'Já reprovou algum ano? Qual?', detail:'Qual ano e qual foi o motivo?' },
+    { num:61, id:'yn_mudouEscola', label:'Mudou de escola? Quantas vezes e por quê?', detail:'Quantas mudanças e os motivos...' },
+  ]);
+
+  // Campos livres escolar
+  const escBody = document.getElementById('escolar-yns');
+  ['rendimentoAtual','materiasRuins','materiasBonas'].forEach((id, i) => {
+    const labels = [
+      {num:62, label:'Como é o rendimento escolar atual (notas, participação, relação com professores)?'},
+      {num:63, label:'Em quais matérias apresenta mais dificuldade?'},
+      {num:64, label:'Em quais matérias tem melhor desempenho?'}
+    ];
+    const div = document.createElement('div');
+    div.className = 'question-group';
+    div.innerHTML = `<div class="question-label"><span class="qnum">${labels[i].num}.</span> ${labels[i].label}</div><input type="text" id="${id}" placeholder="">`;
+    escBody.appendChild(div);
+  });
+
+  buildYN('escolar-yns', [
+    { num:65, id:'yn_profPreoc', label:'Professores já relataram preocupações sobre aprendizagem ou comportamento?', detail:'O que foi relatado e quando?' },
+    { num:66, id:'yn_apoioPed', label:'Já recebeu apoio pedagógico, aula de reforço ou atendimento especializado?', detail:'Qual tipo de apoio e por quanto tempo?' },
+  ]);
+
+  buildYN('academico-yns', [
+    { num:67, id:'yn_difLeitura', label:'Apresenta dificuldade na leitura (velocidade, compreensão, trocas de letras)?', detail:'Descreva as dificuldades de leitura observadas...' },
+    { num:68, id:'yn_difEscrita', label:'Apresenta dificuldade na escrita (letra ilegível, erros ortográficos frequentes, dificuldade de copiar)?', detail:'Descreva as dificuldades de escrita...' },
+    { num:69, id:'yn_difMat', label:'Apresenta dificuldade em matemática (cálculos, tabuada, problemas lógicos)?', detail:'Descreva as dificuldades em matemática...' },
+    { num:70, id:'yn_difComp', label:'Tem dificuldade para compreender o que lê ou para expressar ideias por escrito?', detail:'Descreva...' },
+  ]);
+
+  // Atenção
+  buildYN('atencao-yns', [
+    { num:71, id:'yn_atenLonga', label:'Tem dificuldade para manter a atenção em tarefas longas ou menos interessantes?', detail:'Em quais situações isso é mais evidente?' },
+    { num:72, id:'yn_distracao', label:'Se distrai facilmente com sons, pessoas ou pensamentos?', detail:'Descreva o padrão de distração...' },
+    { num:73, id:'yn_naofinaliza', label:'Começa muitas tarefas mas tem dificuldade para concluir?', detail:'Em quais contextos isso ocorre mais?' },
+    { num:74, id:'yn_desorg', label:'Tem dificuldade para organizar materiais, agenda ou quarto?', detail:'Descreva o grau de desorganização...' },
+    { num:75, id:'yn_esquecimento', label:'Esquece compromissos, tarefas ou objetos com frequência?', detail:'O que costuma esquecer com mais frequência?' },
+    { num:76, id:'yn_planejamento', label:'Tem dificuldade para planejar etapas de um projeto ou tarefa?', detail:'Em quais situações isso é mais percebido?' },
+    { num:77, id:'yn_impulso', label:'Age por impulso, sem pensar nas consequências?', detail:'Dê exemplos de comportamentos impulsivos...' },
+    { num:78, id:'yn_frustracao', label:'Tem dificuldade para esperar a vez ou para tolerar frustração?', detail:'Como reage quando frustrado/a?' },
+    { num:79, id:'yn_mudancaAtiv', label:'Muda bruscamente de atividade ou de assunto durante conversas?', detail:'Descreva...' },
+    { num:80, id:'yn_hiperfoco', label:'Apresenta hiperfoco em alguns temas (fica horas em uma atividade específica)?', detail:'Em quais temas ou atividades?' },
+  ]);
+
+  // Linguagem
+  buildYN('linguagem-yns', [
+    { num:81, id:'yn_expVerbal', label:'Apresenta dificuldade para se expressar verbalmente (encontrar palavras, organizar ideias)?', detail:'Descreva a dificuldade de expressão...' },
+    { num:82, id:'yn_compInstrucoes', label:'Apresenta dificuldade para compreender instruções complexas?', detail:'Em quais situações isso ocorre?' },
+    { num:83, id:'yn_trocaPalavras', label:'Troca palavras, inverte sílabas ou apresenta fala imprecisa?', detail:'Dê exemplos das trocas ou dificuldades...' },
+    { num:84, id:'yn_fono', label:'Já realizou ou realiza acompanhamento com fonoaudiólogo?', detail:'Por quanto tempo e qual o motivo?' },
+    { num:85, id:'yn_comSocial', label:'Tem dificuldade em situações de comunicação social (conversar, fazer amizades, interpretar expressões)?', detail:'Descreva as dificuldades sociais...' },
+  ]);
+
+  // Visuoespacial
+  buildYN('visuo-yns', [
+    { num:86, id:'yn_orientEsp', label:'Tem dificuldade para se orientar em espaços (se perder em lugares conhecidos, dificuldade com mapas)?', detail:'Descreva...' },
+    { num:87, id:'yn_coordenacao', label:'Tem dificuldade com atividades que exigem coordenação olho-mão (desenhar, recortar, jogar bola)?', detail:'Descreva as dificuldades...' },
+    { num:88, id:'yn_letraDesorgs', label:'Apresenta letra muito desorganizada ou dificuldade de alinhar escrita no papel?', detail:'Descreva...' },
+  ]);
+
+  // Memória
+  buildYN('memoria-yns', [
+    { num:89, id:'yn_memRecente', label:'Esquece com frequência o que acabou de aprender ou ouvir?', detail:'Dê exemplos de esquecimentos recentes...' },
+    { num:90, id:'yn_memPassado', label:'Tem dificuldade para se lembrar de eventos passados ou de informações estudadas?', detail:'Descreva...' },
+    { num:91, id:'yn_memSeq', label:'Tem dificuldade para memorizar sequências (números de telefone, tabuada, fórmulas)?', detail:'Quais tipos de sequências são mais difíceis?' },
+    { num:92, id:'yn_memSelet', label:'Tem boa memória para assuntos de interesse mas esquece o que não lhe agrada?', detail:'Dê exemplos...' },
+  ]);
+
+  // Emoção
+  buildYN('emocao-yns', [
+    { num:93, id:'yn_crisesEmoc', label:'Tem crises de choro, raiva ou tristeza de difícil controle?', detail:'Com qual frequência e em quais situações?' },
+    { num:94, id:'yn_humorInst', label:'Apresenta humor instável, com mudanças rápidas?', detail:'Descreva o padrão de variação de humor...' },
+    { num:95, id:'yn_reaIntensa', label:'Reage de forma intensa a frustrações pequenas?', detail:'Dê exemplos de reações desproporcionais...' },
+    { num:96, id:'yn_ansiedade', label:'Apresenta sinais de ansiedade (preocupação excessiva, medos, esquiva de situações)?', detail:'Quais são os principais medos ou preocupações?' },
+    { num:97, id:'yn_tristeza', label:'Apresenta sinais de tristeza persistente, apatia ou perda de interesse?', detail:'Há quanto tempo? Em quais situações é mais evidente?' },
+    { num:98, id:'yn_difRelaxar', label:'Tem dificuldade para relaxar ou descansar mentalmente?', detail:'Descreva...' },
+  ]);
+
+  // Comportamento
+  buildYN('comportamento-yns', [
+    { num:99, id:'yn_compRepetit', label:'Apresenta comportamentos repetitivos, rituais ou manias?', detail:'Descreva os comportamentos repetitivos observados...' },
+    { num:100, id:'yn_oposicao', label:'Apresenta comportamentos de oposição ou desafio frequentes?', detail:'Em quais situações e com qual frequência?' },
+    { num:101, id:'yn_agressivo', label:'Já apresentou comportamentos agressivos (físicos ou verbais)?', detail:'Descreva os episódios e a frequência...' },
+    { num:102, id:'yn_autolesao', label:'Já apresentou comportamentos autolesivos ou relatos de pensamentos de se machucar?', detail:'Descreva quando e em quais circunstâncias...' },
+    { num:103, id:'yn_mudRotina', label:'Apresenta dificuldade para aceitar mudanças de rotina?', detail:'Como reage às mudanças?' },
+    { num:104, id:'yn_telas', label:'Tem comportamentos que preocupam relacionados ao uso de tela, jogos ou redes sociais?', detail:'Descreva o padrão de uso e as preocupações...' },
+  ]);
+
+  // Social
+  buildYN('social-yns', [
+    { num:85, id:'yn_amizades', label:'Tem dificuldade para fazer ou manter amizades?', detail:'Descreva...' },
+    { num:86, id:'yn_sozinho', label:'Prefere ficar sozinho/a a maior parte do tempo?', detail:'Isso é uma preferência ou causa sofrimento?' },
+    { num:87, id:'yn_bullying', label:'Já sofreu ou presenciou bullying na escola ou em outros contextos?', detail:'Descreva o que ocorreu e o impacto...' },
+  ]);
+
+  // Rotina
+  buildYN('rotina-yns', [
+    { num:90, id:'yn_cumpRotina', label:'Tem dificuldade para cumprir rotina sem lembretes dos pais?', detail:'Quais atividades precisam de mais lembretes?' },
+    { num:91, id:'yn_procrastin', label:'Tem dificuldade para iniciar tarefas (procrastinação)?', detail:'Quais tarefas costuma adiar mais?' },
+  ]);
+
+  // Contexto
+  buildYN('contexto-yns', [
+    { num:99, id:'yn_conflitos', label:'Há conflitos familiares frequentes que impactam o ambiente em casa?', detail:'Descreva a natureza dos conflitos...' },
+  ]);
+
+  // Substâncias
+  buildYN('substancias-yns', [
+    { num:107, id:'yn_alcool', label:'O/a adolescente já experimentou ou faz uso de álcool?', detail:'Com qual frequência e em quais situações?' },
+    { num:108, id:'yn_cigarro', label:'O/a adolescente já experimentou ou faz uso de cigarro, narguilé ou vapes?', detail:'Descreva...' },
+    { num:109, id:'yn_cannabis', label:'O/a adolescente já experimentou ou faz uso de cannabis ou outras substâncias?', detail:'Descreva...' },
+    { num:110, id:'yn_subsMed', label:'Há preocupação com uso excessivo de medicamentos (ansiolíticos, energéticos, outros)?', detail:'Quais medicamentos e frequência de uso?' },
+  ]);
+
+  buildTratamentos();
+  updateProgress();
+});
+</script>
+</body>
+</html>
