@@ -1292,32 +1292,36 @@ function collectData() {
 }
 
 // ── SUBMIT ────────────────────────────────────────────────────────────────
-async function submitForm() {
+function submitForm() {
   const btn = document.getElementById('btnSubmit');
   btn.disabled = true;
   btn.textContent = 'Enviando...';
 
   const { headers, values } = collectData();
+  const payload = { sheetName: 'Respostas pais', headers, values };
+  const encoded = encodeURIComponent(JSON.stringify(payload));
+  const callbackName = 'jsonpCallback_' + Date.now();
 
-  try {
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ sheetName: 'Respostas pais', headers, values })
-    });
-    // no-cors nao retorna resposta legivel, mas o script recebe os dados
-    // aguarda 1.5s para garantir o envio antes de mostrar sucesso
-    setTimeout(() => {
-      document.getElementById('mainForm').style.display = 'none';
-      document.getElementById('successScreen').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1500);
-  } catch (err) {
+  const script = document.createElement('script');
+  script.src = SCRIPT_URL + '?data=' + encoded + '&callback=' + callbackName;
+
+  window[callbackName] = function(response) {
+    delete window[callbackName];
+    document.body.removeChild(script);
+    document.getElementById('mainForm').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  script.onerror = function() {
+    delete window[callbackName];
+    document.body.removeChild(script);
     btn.disabled = false;
     btn.textContent = 'Enviar Entrevista';
     alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
-  }
+  };
+
+  document.body.appendChild(script);
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────
